@@ -68,26 +68,6 @@ const extraerPaises = (arrayLength, cantidad) => {
 
 //Funciones para crear preguntas
 
-const generarPreguntas = (paisesSeleccionados) => {
-    const tipoDePreguntas = Math.floor(Math.random() * 3);
-
-    switch (tipoDePreguntas) {
-        case 1:
-            preguntaCapitales(paisesSeleccionados);
-            break;
-        case 2:
-            preguntaBandera(paisesSeleccionados);
-            break;
-        case 3:
-            preguntaLimitrofe(paisesSeleccionados);
-            break;
-        default:
-            console.log('No se pudo cargar una pregunta');
-            break;
-    }
-}
-
-
 const preguntaCapitales = (pais) => {
     const tipo = 'capital';
     const puntaje = 3;
@@ -129,7 +109,24 @@ const preguntaCapitales = (pais) => {
     })
 }
 
+const generarPreguntas = (paisesSeleccionados) => {
+    const tipoDePreguntas = Math.floor(Math.random() * 3);
 
+    switch (tipoDePreguntas) {
+        case 1:
+            preguntaCapitales(paisesSeleccionados);
+            break;
+        case 2:
+            preguntaBandera(paisesSeleccionados);
+            break;
+        case 3:
+            preguntaLimitrofe(paisesSeleccionados);
+            break;
+        default:
+            console.log('No se pudo cargar una pregunta');
+            break;
+    }
+}
 
 
 const preguntaBandera = (pais) => {
@@ -147,7 +144,7 @@ const preguntaBandera = (pais) => {
         do {
             const indiceAleatorio = Math.floor(Math.random() * cantidadDePaises);
             opcionIncorrecta = paises[indiceAleatorio].name.common;
-        } while (opcionIncorrecta === respuestaCorrecta || opciones.includes(opcionIncorrecta);
+        } while (opcionIncorrecta === respuestaCorrecta || opciones.includes(opcionIncorrecta));
     }
 
     opciones.push(opcionIncorrecta);
