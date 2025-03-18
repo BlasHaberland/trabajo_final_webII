@@ -139,7 +139,7 @@ const preguntaBandera = (pais) => {
 
     opciones.push(respuestaCorrecta);
 
-    for (let i = 0; 0 < 3; i++) {
+    for (let i = 0; i < 3; i++) {
         let opcionIncorrecta
         do {
             const indiceAleatorio = Math.floor(Math.random() * cantidadDePaises);
