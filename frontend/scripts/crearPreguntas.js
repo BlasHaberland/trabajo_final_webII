@@ -10,6 +10,10 @@ let cantidadDePaises;
 
 const Inicializar = async () => {
 
+    //Limpio los array de paises seleccionados y preguntas para que no se acumulen
+    paisesSeleccionados.length = 0;
+    preguntas.length = 0;
+
     //Hacer la carga de los paises en el array paises
     await cargarPaises();
 

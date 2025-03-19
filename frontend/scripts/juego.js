@@ -35,10 +35,14 @@ function mostrarPreguntas() {
         container.innerHTML = `
         <p> Fin del juego. Puntaje final: ${puntos} puntos.</p>
         <p> Tiempo total: ${tiempoFinal} s. </p>
-        <input type= "text" id= "nombreJugador" placeholder= "Ingrese su nombre">
-        <button id= "btnEnviarPuntaje"> Enviar puntaje </button>`;
+       <div class="input-container">
+        <input type="text" id="nombreJugador" placeholder="Ingrese su nombre">
+        <button id="btnEnviarPuntaje" class="btn btn-success">Enviar puntaje</button>
+    </div>`;
 
         document.getElementById('reloj').style.display = 'none';
+        document.body.style.backgroundColor = '#005E54';
+
 
         //Envento al hacer click al boton enviar puntaje
 
@@ -67,8 +71,9 @@ function mostrarPreguntas() {
     if (pregunta.bandera) {
         const img = document.createElement('img');
         img.src = pregunta.bandera;
+        img.className = 'img-thumbnail';
         img.alt = 'Bandera';
-        img.style.width = '150px';
+        img.classList.add('bandera');
         container.insertBefore(img, container.firstChild);
     }
 
@@ -88,10 +93,11 @@ function mostrarPreguntas() {
 
 function evaluarRespuesta(opcionSeleccionada, respuestaCorrecta, puntaje) {
     if (opcionSeleccionada === respuestaCorrecta) {
-        alert('Respuesta correcta');
+        cambiarColorRespuesta('#C2BB00');
         puntos += puntaje;
-    } else { alert(`Respuesta incorrecta. La respuesta correcta era ${respuestaCorrecta}`); }
-
+    } else {
+        cambiarColorRespuesta('#E1523D');
+    }
     indexPreguntaActual++;
     mostrarPreguntas();
 }
@@ -119,4 +125,11 @@ function reiniciarJuego() {
     if (reloj) {
         reloj.textContent = `Tiempo: 0 s.`; // se reinicia el texto del reloj
     }
+}
+
+function cambiarColorRespuesta(color) {
+    document.body.style.backgroundColor = color;
+    setTimeout(() => {
+        document.body.style.backgroundColor = '#005E54';
+    }, 600);
 }
