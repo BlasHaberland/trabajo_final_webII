@@ -15,6 +15,11 @@ const Inicializar = async () => {
 
     //Extraer 10 paises aleatorios
     extraerPaises(paises.length, 10);
+
+    //generar preguntas
+    paisesSeleccionados.forEach((pais) => {
+        generarPreguntas(pais);
+    });
 }
 
 
@@ -69,7 +74,7 @@ const extraerPaises = (arrayLength, cantidad) => {
 //Funciones para crear preguntas
 
 const generarPreguntas = (paisesSeleccionados) => {
-    const tipoDePreguntas = Math.floor(Math.random() * 3);
+    const tipoDePreguntas = Math.floor(Math.random() * 3) + 1;
 
     switch (tipoDePreguntas) {
         case 1:
@@ -96,7 +101,7 @@ const preguntaCapitales = (pais) => {
     const respuestaCorrecta = pais.name.common;
     let opciones = [];
 
-    //Agregar la respuesta correcta a las opciones
+
     opciones.push(respuestaCorrecta);
 
     //Agregar 3 respuestas incorrectas
@@ -113,7 +118,7 @@ const preguntaCapitales = (pais) => {
     for (let i = 0; i < 3; i++) {
         let opcionIncorrecta;
         do {
-            const indiceAleatorio = Math.floor(Math.random() * cantidadDePaises); // <- aca poner un paises.length
+            const indiceAleatorio = Math.floor(Math.random() * 246); // <- aca poner un paises.length
             opcionIncorrecta = paises[indiceAleatorio].name.common;
         } while (opcionIncorrecta === respuestaCorrecta || opciones.includes(opcionIncorrecta));
         opciones.push(opcionIncorrecta);
@@ -139,17 +144,19 @@ const preguntaBandera = (pais) => {
     const respuestaCorrecta = pais.name.common;
     let opciones = [];
 
+
     opciones.push(respuestaCorrecta);
 
     for (let i = 0; i < 3; i++) {
-        let opcionIncorrecta
+        let opcionIncorrecta;
         do {
-            const indiceAleatorio = Math.floor(Math.random() * cantidadDePaises);
+            const indiceAleatorio = Math.floor(Math.random() * 246);
             opcionIncorrecta = paises[indiceAleatorio].name.common;
         } while (opcionIncorrecta === respuestaCorrecta || opciones.includes(opcionIncorrecta));
+        opciones.push(opcionIncorrecta);
     }
 
-    opciones.push(opcionIncorrecta);
+
     opciones = mezclarOpciones(opciones);
 
     preguntas.push({
