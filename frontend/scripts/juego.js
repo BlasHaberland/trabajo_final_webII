@@ -51,6 +51,22 @@ function mostrarPreguntas() {
             if (nombreJugador.trim() === '') {
                 alert('Por favor ingrese el nombre del jugador para poder publicar el puntaje.');
             } else {
+
+                fetch("http://localhost:3000/players",{
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name: nombreJugador,
+                        points: puntos,
+                        sec: tiempoFinal,
+                    })
+                })
+                
+                .then((res) => res.json())
+                .then((res) => console.log(res) )
+
                 console.log(`Enviando puntaje: ${nombreJugador} - ${puntos} puntos - ${tiempoFinal} s.`);
                 alert('Puntaje enviado con exito');
                 btnEmpezarJuego.style.display = 'block';
