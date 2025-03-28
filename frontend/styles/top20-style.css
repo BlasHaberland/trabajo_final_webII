@@ -5,25 +5,30 @@ body {
     justify-content: center;
     align-items: center; 
     height: 100vh;
-    margin: 0; 
+    margin: 10; 
+
 }
 
 #tituloTop20 {
-    color: blanchedalmond;
+    color: #ffffff; /* Color blanco para el texto */
     text-align: center; 
     margin-top: 20px; 
     margin-bottom: 20px;
-    text-decoration: underline;
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    font-size: 3rem; /* Tamaño de fuente grande */
+    font-weight: bold; /* Hace el texto más grueso */
+    letter-spacing: 3px; /* Espaciado entre letras */
+    background: linear-gradient(90deg, #ffb238, #fe8a1d); /* Degradado atractivo */
+    -webkit-background-clip: text; /* Clip del fondo al texto */
+    -webkit-text-fill-color: transparent; /* Hace el texto transparente para mostrar el degradado */
 }
 
 #topList {
     width: 100%; 
-    padding: 10px 50px; 
+    padding: 20px 30px; 
     margin: 0 auto; 
     text-align: left; 
-    background-color: #d0deb8; 
     border-radius: 10px; 
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
     overflow-y: auto; 
     max-height: 70vh; 
 }
@@ -34,9 +39,30 @@ body {
     left: 10px;
     padding: 5px 10px;
     height: 40px;
-    background-color:#4CAF50;
+    background-color:#ffb238;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+#topList li {
+    margin-bottom: 15px; 
+    padding: 10px;
+    background-color: #4CAF50; 
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    list-style: none; 
+}
+
+#topList li span.nombre {
+    display: block; /* Muestra el nombre en una línea separada */
+    font-weight: bold; /* Resalta el nombre */
+    color: #333;
+}
+
+#topList li span.detalles {
+    display: block; /* Muestra los detalles (puntaje y segundos) en una nueva línea */
+    font-size: 0.9em; /* Tamaño de fuente más pequeño */
+    color: #222222;
 }

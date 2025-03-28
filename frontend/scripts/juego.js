@@ -15,7 +15,7 @@ async function mostrarTop20(lista) {
             throw new Error(`Error al obtener el Top 20: ${response.statusText}`);
         }
         const data = await response.json();
-        console.log(data)
+        console.log(data);
 
         const jugadores = data.jugadores;
         const topList = document.getElementById(lista);
@@ -26,7 +26,22 @@ async function mostrarTop20(lista) {
         // Crear el contenido del Top 20
         jugadores.forEach(player => {
             const listItem = document.createElement('li');
-            listItem.textContent = `${player.name} - ${player.points} puntos - ${player.seconds} s`;
+
+            // Crear el span para el nombre
+            const nombreSpan = document.createElement('span');
+            nombreSpan.className = 'nombre';
+            nombreSpan.textContent = player.name;
+
+            // Crear el span para los detalles (puntaje y segundos)
+            const detallesSpan = document.createElement('span');
+            detallesSpan.className = 'detalles';
+            detallesSpan.textContent = `Puntaje: ${player.points}, Segundos: ${player.seconds}`;
+
+            // Agregar los spans al elemento li
+            listItem.appendChild(nombreSpan);
+            listItem.appendChild(detallesSpan);
+
+            // Agregar el li a la lista
             topList.appendChild(listItem);
         });
 
