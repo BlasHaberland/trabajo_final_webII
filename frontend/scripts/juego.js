@@ -1,4 +1,5 @@
 const btnEmpezarJuego = document.getElementById('btnEmpezarJuego');
+const btnTop20 = document.getElementById('btnTop20');
 const container = document.getElementById('container');
 
 let indexPreguntaActual = 0;
@@ -6,23 +7,55 @@ let puntos = 0;
 let tiempoInicio;
 let intervaloReloj;
 
-btnEmpezarJuego.addEventListener('click', async () => {
-    await Inicializar(); // LLenar variable 'preguntas'
+// Función para obtener y mostrar el Top 20
+async function mostrarTop20(lista) {
+    try {
+        const response = await fetch("http://localhost:3000/players");
+        if (!response.ok) {
+            throw new Error(`Error al obtener el Top 20: ${response.statusText}`);
+        }
+        const data = await response.json();
+        console.log(data)
 
-    if (preguntas.length > 0) {
-        btnEmpezarJuego.style.display = 'none';
-        reiniciarJuego();
-        tiempoInicio = Date.now();
-        iniciarReloj();
+        const jugadores = data.jugadores;
+        const topList = document.getElementById(lista);
 
-        console.log(`paises: ${cantidadDePaises}`)
-        console.log(`preguntas: ${preguntas.length}`)
-        mostrarPreguntas();
-    } else {
-        container.innerHTML = '<p>No hay preguntas disponibles</p>';
+        // Limpia la lista
+        topList.innerHTML = '';
+
+        // Crear el contenido del Top 20
+        jugadores.forEach(player => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${player.name} - ${player.points} puntos - ${player.seconds} s`;
+            topList.appendChild(listItem);
+        });
+
+    } catch (error) {
+        console.error('Error:', error);
+        alert('No se pudo cargar el Top 20.');
     }
-})
+}
 
+//Empezar a juar
+if (btnEmpezarJuego) {
+    btnEmpezarJuego.addEventListener('click', async () => {
+        await Inicializar(); // LLenar variable 'preguntas'
+
+        if (preguntas.length > 0) {
+            btnEmpezarJuego.style.display = 'none';
+            btnTop20.style.display = 'none';
+            reiniciarJuego();
+            tiempoInicio = Date.now();
+            iniciarReloj();
+
+            console.log(`paises: ${cantidadDePaises}`)
+            console.log(`preguntas: ${preguntas.length}`)
+            mostrarPreguntas();
+        } else {
+            container.innerHTML = '<p>No hay preguntas disponibles</p>';
+        }
+    })
+}
 
 function mostrarPreguntas() {
 
@@ -52,7 +85,7 @@ function mostrarPreguntas() {
                 alert('Por favor ingrese el nombre del jugador para poder publicar el puntaje.');
             } else {
 
-                fetch("http://localhost:3000/players",{
+                fetch("http://localhost:3000/players", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -63,13 +96,14 @@ function mostrarPreguntas() {
                         sec: tiempoFinal,
                     })
                 })
-                
-                .then((res) => res.json())
-                .then((res) => console.log(res) )
+
+                    .then((res) => res.json())
+                    .then((res) => console.log(res))
 
                 console.log(`Enviando puntaje: ${nombreJugador} - ${puntos} puntos - ${tiempoFinal} s.`);
                 alert('Puntaje enviado con exito');
                 btnEmpezarJuego.style.display = 'block';
+                btnTop20.style.display = 'block';
                 container.innerHTML = '';
             }
         });
@@ -143,9 +177,17 @@ function reiniciarJuego() {
     }
 }
 
+// Cambiar el color segun la respuesta
 function cambiarColorRespuesta(color) {
     document.body.style.backgroundColor = color;
     setTimeout(() => {
         document.body.style.backgroundColor = '#005E54';
     }, 600);
+}
+
+// Mostrar el Top 20 al hacer clic en el botón 
+if (btnTop20) {
+    btnTop20.addEventListener('click', () => {
+        window.location.href = 'top-20.html'
+    });
 }

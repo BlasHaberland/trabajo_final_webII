@@ -67,3 +67,23 @@ input{
     border: none;
     border-radius: 5px;
 }
+
+#btnTop20 {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    height: 40px;
+}
+
+#tituloTop20 {
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+}
+

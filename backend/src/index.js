@@ -26,7 +26,7 @@ app.post('/players', [], async function (req, res) {
 
 app.get('/players', [], async function (req, res){
     const connection = await inicializarConexion();
-    const jugadores = await connection.query("SELECT name, points, seconds FROM players ORDER BY points DESC, seconds ASC LIMIT 5")
+    const jugadores = await connection.query("SELECT name, points, seconds FROM players ORDER BY points DESC, seconds ASC LIMIT 20")
         
     res.json({jugadores: jugadores[0]});
 
