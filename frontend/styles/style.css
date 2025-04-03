@@ -81,8 +81,8 @@ input{
 
 .resultados {
     display: flex;
-    justify-content: center; 
-    gap: 10px;
+    justify-content: flex-start;
+    gap: 10px; 
     margin: 20px 0;
 }
 
@@ -99,10 +99,12 @@ input{
 
 .resultado-correcto {
     background-color: #C2BB00; 
-    color: #000 ;
+    color: #fff ;
 }
 
 .resultado-incorrecto {
     background-color: #E1523D; 
     color: #fff;
 }
+
+

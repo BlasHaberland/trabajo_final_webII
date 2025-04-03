@@ -176,13 +176,15 @@ function evaluarRespuesta(opcionSeleccionada, respuestaCorrecta, puntaje) {
         cambiarColorRespuesta('#C2BB00');
         puntos += puntaje;
         resBien++;
+        mostrarModal(`Sumaste <strong>+${puntaje} puntos</strong>.`, `Correcto!`);
 
     } else {
         cambiarColorRespuesta('#E1523D');
         resMal++;
+        mostrarModal(`La respuesta correcta era: <strong>${respuestaCorrecta}</strong>`, `Incorrecto!`);
     }
-    indexPreguntaActual++;
-    mostrarPreguntas();
+    //indexPreguntaActual++;
+    //mostrarPreguntas();
 }
 
 
@@ -223,4 +225,27 @@ if (btnTop20) {
     btnTop20.addEventListener('click', () => {
         window.location.href = 'top-20.html'
     });
+}
+
+// Modal
+function mostrarModal(mensaje, solucion) {
+    const mensajeModal = document.getElementById('mensajeModal');
+    const tituloModal = document.getElementById('modalTitulo');
+
+    mensajeModal.innerHTML = mensaje;
+    tituloModal.innerHTML = solucion;
+    const modalElement = document.getElementById('modalRespuesta');
+
+    // muestro el modal usando Bootstrap
+    const modal = new bootstrap.Modal(document.getElementById('modalRespuesta'), {
+        backdrop: 'static',
+        keyboard: false
+    });
+    modal.show();
+
+    modalElement.addEventListener('hidden.bs.modal', () => {
+
+        indexPreguntaActual++;
+        mostrarPreguntas();
+    }, { once: true });
 }
