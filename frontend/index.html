@@ -11,10 +11,18 @@
     <title>TrivEarth</title>
 </head>
 
-<!-- boton para ver los mejores 20 jugadores -->
 <body style="background-color: #005E54;">
-    <button id="btnTop20"> Mejores 20 </button>
-    <button id="btnEmpezarJuego" class="btn btn-success">Empezar a jugar!</button>
+    <div class="main-container">
+        <button id="btnTop20"> Mejores 20 </button>
+        <button id="btnEmpezarJuego" class="btn btn-success">Empezar a jugar!</button>
+        <!-- Contenedor de banderas -->
+        <div class="cont-banderas" id="cont-banderas">
+            <img src="./img/us.webp" alt="Bandera de estados unidos" class="banderasIndex">
+            <img src="./img/ar.webp" alt="Bandera de argentina" class="banderasIndex">
+            <img src="./img/fr.webp" alt="Bandera de francia" class="banderasIndex">
+            <img src="./img/gb-eng.webp" alt="Bandera de inglaterra" class="banderasIndex">
+        </div>
+    </div>
 
     <div id="container"></div>
 
@@ -27,7 +35,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="mensajeModal">
-                    <!-- Aquí se mostrará el mensaje dinámico -->
+                    <!-- Mensaje perzonalizado -->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cerrar</button>
@@ -36,7 +44,7 @@
         </div>
     </div>
 
-    <!-- scripts --> 
+    <!-- scripts -->
     <script src="./scripts/crearPreguntas.js"></script>
     <script src="./scripts/juego.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

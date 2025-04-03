@@ -1,6 +1,7 @@
 const btnEmpezarJuego = document.getElementById('btnEmpezarJuego');
 const btnTop20 = document.getElementById('btnTop20');
 const container = document.getElementById('container');
+const badnerasImg = document.getElementById('cont-banderas');
 
 let resBien = 0;
 let resMal = 0;
@@ -62,6 +63,8 @@ if (btnEmpezarJuego) {
         if (preguntas.length > 0) {
             btnEmpezarJuego.style.display = 'none';
             btnTop20.style.display = 'none';
+            badnerasImg.style.display = 'none';
+
             reiniciarJuego();
             tiempoInicio = Date.now();
             iniciarReloj();
@@ -134,6 +137,7 @@ function mostrarPreguntas() {
                 alert('Puntaje enviado con exito');
                 btnEmpezarJuego.style.display = 'block';
                 btnTop20.style.display = 'block';
+                badnerasImg.style.display = 'block';
                 container.innerHTML = '';
             }
         });
