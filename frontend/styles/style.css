@@ -1,13 +1,3 @@
-/*@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #121212;
-        color: #ffffff;
-    }
-
-    a {
-        color: #bb86fc;
-    }
-}*/
 
 
 body {
@@ -39,11 +29,11 @@ input{
 .input-container {
     display: flex;
     align-items: center;
-    gap: 50px; /* Espacio entre el input y el botón */
+    gap: 50px;
 }
 
 .input-container input {
-    flex: 1; /* Para que el input ocupe el espacio disponible */
+    flex: 1;
 }
 
 
@@ -87,3 +77,32 @@ input{
     color: white;
 }
 
+
+
+.resultados {
+    display: flex;
+    justify-content: center; 
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.resultado-correcto, .resultado-incorrecto {
+    padding: 0px; 
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    width: 150px;
+    height: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); 
+}
+
+.resultado-correcto {
+    background-color: #C2BB00; 
+    color: #000 ;
+}
+
+.resultado-incorrecto {
+    background-color: #E1523D; 
+    color: #fff;
+}

@@ -10,17 +10,17 @@ body {
 }
 
 #tituloTop20 {
-    color: #ffffff; /* Color blanco para el texto */
+    color: #ffffff; 
     text-align: center; 
     margin-top: 20px; 
     margin-bottom: 20px;
-    text-transform: uppercase; /* Convierte el texto a mayúsculas */
-    font-size: 3rem; /* Tamaño de fuente grande */
-    font-weight: bold; /* Hace el texto más grueso */
-    letter-spacing: 3px; /* Espaciado entre letras */
-    background: linear-gradient(90deg, #ffb238, #fe8a1d); /* Degradado atractivo */
-    -webkit-background-clip: text; /* Clip del fondo al texto */
-    -webkit-text-fill-color: transparent; /* Hace el texto transparente para mostrar el degradado */
+    text-transform: uppercase; 
+    font-size: 3rem; 
+    font-weight: bold; 
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, #ffb238, #fe8a1d); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
 }
 
 #topList {
@@ -56,13 +56,13 @@ body {
 }
 
 #topList li span.nombre {
-    display: block; /* Muestra el nombre en una línea separada */
-    font-weight: bold; /* Resalta el nombre */
+    display: block; 
+    font-weight: bold; 
     color: #333;
 }
 
 #topList li span.detalles {
-    display: block; /* Muestra los detalles (puntaje y segundos) en una nueva línea */
-    font-size: 0.9em; /* Tamaño de fuente más pequeño */
+    display: block; 
+    font-size: 0.9em; 
     color: #222222;
 }

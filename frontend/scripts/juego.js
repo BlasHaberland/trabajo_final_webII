@@ -2,6 +2,9 @@ const btnEmpezarJuego = document.getElementById('btnEmpezarJuego');
 const btnTop20 = document.getElementById('btnTop20');
 const container = document.getElementById('container');
 
+let resBien = 0;
+let resMal = 0;
+
 let indexPreguntaActual = 0;
 let puntos = 0;
 let tiempoInicio;
@@ -83,11 +86,23 @@ function mostrarPreguntas() {
         container.innerHTML = `
         <p> Fin del juego. Puntaje final: ${puntos} puntos.</p>
         <p> Tiempo total: ${tiempoFinal} s. </p>
+
+        <div class="resultados">
+            <div class="resultado-correcto">
+                <p>Correctas: ${resBien}</p>
+            </div>
+            <div class="resultado-incorrecto">
+                <p>Incorrectas: ${resMal}</p>
+            </div>
+        </div>
+
        <div class="input-container">
         <input type="text" id="nombreJugador" placeholder="Ingrese su nombre">
         <button id="btnEnviarPuntaje" class="btn btn-success">Enviar puntaje</button>
     </div>`;
 
+
+        console.log(resBien, resMal);
         document.getElementById('reloj').style.display = 'none';
         document.body.style.backgroundColor = '#005E54';
 
@@ -160,8 +175,11 @@ function evaluarRespuesta(opcionSeleccionada, respuestaCorrecta, puntaje) {
     if (opcionSeleccionada === respuestaCorrecta) {
         cambiarColorRespuesta('#C2BB00');
         puntos += puntaje;
+        resBien++;
+
     } else {
         cambiarColorRespuesta('#E1523D');
+        resMal++;
     }
     indexPreguntaActual++;
     mostrarPreguntas();
