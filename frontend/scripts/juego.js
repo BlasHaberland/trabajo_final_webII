@@ -118,8 +118,7 @@ function mostrarPreguntas() {
                 alert('Por favor ingrese el nombre del jugador para poder publicar el puntaje.');
             } else {
 
-                fetch("http://localhost:3000/https://trabajo-final-webii.onrender.com/players
-    ", {
+                fetch("http://localhost:3000/https://trabajo-final-webii.onrender.com/players", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
