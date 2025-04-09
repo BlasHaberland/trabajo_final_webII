@@ -1,0 +1,91 @@
+body {
+    background-color: #005E54 !important;
+    color: white; 
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    height: 100vh;
+    margin: 10; 
+
+}
+
+#tituloTop20 {
+    color: #ffffff; 
+    text-align: center; 
+    margin-top: 20px; 
+    margin-bottom: 20px;
+    text-transform: uppercase; 
+    font-size: 3rem; 
+    font-weight: bold; 
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, #ffb238, #fe8a1d); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+}
+
+#topList {
+    width: 100%; 
+    padding: 20px 30px; 
+    margin: 0 auto; 
+    text-align: left; 
+    border-radius: 10px; 
+    overflow-y: auto; 
+    max-height: 70vh; 
+}
+
+#volver {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 5px 10px;
+    height: 40px;
+    background-color:#ffb238;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#topList li {
+    margin-bottom: 15px; 
+    padding: 10px;
+    background-color: #4CAF50; 
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    list-style: none; 
+}
+
+#topList li span.nombre {
+    display: block; 
+    font-weight: bold; 
+    color: #333;
+}
+
+#topList li span.detalles {
+    display: block; 
+    font-size: 0.9em; 
+    color: #222222;
+}
+
+
+/* Estilos de la scrollbar */
+#topList::-webkit-scrollbar {
+    width: 10px;
+}
+
+#topList::-webkit-scrollbar-track {
+    background: #333; 
+    border-radius: 5px;
+}
+
+#topList::-webkit-scrollbar-thumb {
+    background-color: #4CAF50; 
+    border-radius: 5px;
+    border: 2px solid transparent; 
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.2);
+
+}
+
+#topList::-webkit-scrollbar-thumb:hover {
+    background-color: #39843d; 
+}
