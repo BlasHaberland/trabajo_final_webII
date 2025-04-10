@@ -18,7 +18,7 @@ let intervaloReloj;
 // Función para obtener y mostrar el Top 20
 async function mostrarTop20(lista) {
     try {
-        const response = await fetch(urlLocal);
+        const response = await fetch(urlRemota);
         if (!response.ok) {
             throw new Error(`Error al obtener el Top 20: ${response.statusText}`);
         }
@@ -124,7 +124,7 @@ function mostrarPreguntas() {
                 alert('Por favor ingrese el nombre del jugador para poder publicar el puntaje.');
             } else {
 
-                fetch(urlLocal, {
+                fetch(urlRemota, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
