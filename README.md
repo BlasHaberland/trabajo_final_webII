@@ -21,13 +21,13 @@ Este proyecto es una aplicación web interactiva llamada TrivEarth, diseñada co
 ## Instalacion
 1. Clonar el repositorio
 ```bash
-git clone https://github.com/tu-usuario/trabajo-final-webii.git
+git clone https://github.com/BlasHaberland/trabajo_final_webII.git
 ```
 2. Acceder a la carpeta
 ```bash
 cd trabajo-final-webii
 ```
-3. Crea un archivo .env en la carpeta backend con el siguiente contenido:
+3. Editar el archivo .env en la carpeta backend con el siguiente contenido:
 ```
 PORT=3000
 MYSQL_URI="mysql://usuario:contraseña@localhost:3306/nombre_base_datos"
@@ -38,7 +38,7 @@ MYSQL_URI="mysql://usuario:contraseña@localhost:3306/nombre_base_datos"
 ```
 npm install
 ```
-5. inicia el servidor
+5. inicia el servidor en modo desarrollo
 ```
 npm run dev
 ```
