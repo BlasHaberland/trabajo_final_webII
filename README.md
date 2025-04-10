@@ -58,8 +58,8 @@ npm run dev
 - dotenv: Manejo de variables de entorno.
 - mysql2: Conexión con la base de datos MySQL.
 
-### API
-RestCountries: API utilizada para obtener datos de países (banderas, capitales, fronteras, etc.).  
+> [!NOTE]
+>RestCountries: API utilizada para obtener datos de países (banderas, capitales, fronteras, etc.).  
 [link API restcountries](https://restcountries.com/)
 
 
