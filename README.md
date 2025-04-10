@@ -58,4 +58,4 @@ npm run dev
 
 ### API
 RestCountries: API utilizada para obtener datos de países (banderas, capitales, fronteras, etc.).  
-**link**: `https://restcountries.com/`
+[link API restcountries](https://restcountries.com/)
