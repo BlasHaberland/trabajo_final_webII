@@ -1,3 +1,4 @@
+![Banderas](./frontend/img/banderas.png)
 # Trabajo Final - Web II
 Este proyecto es una aplicación web interactiva llamada TrivEarth, diseñada como trabajo final para la materia Web II. La aplicación consiste en un juego de preguntas y respuestas relacionadas con países, utilizando datos obtenidos de la API de RestCountries.
 
