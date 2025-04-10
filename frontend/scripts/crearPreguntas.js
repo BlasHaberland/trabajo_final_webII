@@ -58,7 +58,7 @@ const cargarPaises = async () => {
 
 const extraerPaises = (arrayLength, cantidad) => {
     let posicionesSeleccionadas = [];
-    let posicionesDisponibles = Array.from({ length: arrayLength }, (_, i) => i); // <- EXPLICAMELO FEDE;
+    let posicionesDisponibles = Array.from({ length: arrayLength }, (_, i) => i);
 
     console.log(paises);
     for (let i = 0; i < cantidad; i++) {
@@ -101,7 +101,7 @@ const generarPreguntas = (paisesSeleccionados) => {
 const preguntaCapitales = (pais) => {
     const tipo = 'capital';
     const puntaje = 3;
-    const pregunta = `cual es el nombre del pais que tiene por capital a "${pais.capital}"?`;
+    const pregunta = `¿Cual es el nombre del pais que tiene por capital a "${pais.capital}"?`;
     const respuestaCorrecta = pais.name.common;
     let opciones = [];
 
@@ -143,7 +143,7 @@ const preguntaCapitales = (pais) => {
 const preguntaBandera = (pais) => {
     const tipo = 'bandera';
     const puntaje = 5;
-    const pregunta = `a que pais pertenece la siguiente bandera?`;
+    const pregunta = `¿A que pais pertenece la siguiente bandera?`;
     const bandera = pais.flags.png;
     const respuestaCorrecta = pais.name.common;
     let opciones = [];
@@ -177,7 +177,7 @@ const preguntaBandera = (pais) => {
 const preguntaLimitrofe = (pais) => {
     const tipo = 'limitrofe';
     const puntaje = 3;
-    const pregunta = `cuantos paises limita con ${pais.name.common}?`;
+    const pregunta = `¿Cuantos paises limita con ${pais.name.common}?`;
     const respuestaCorrecta = pais?.borders?.length || 0;
     let opciones = [];
 

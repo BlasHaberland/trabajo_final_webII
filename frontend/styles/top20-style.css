@@ -67,7 +67,9 @@ body {
     color: #222222;
 }
 
-
+#topList li span.detalles{
+    color: #222222;
+}
 /* Estilos de la scrollbar */
 #topList::-webkit-scrollbar {
     width: 10px;

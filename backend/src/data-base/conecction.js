@@ -20,7 +20,8 @@ async function inicializarBaseDatos() {
             id INT PRIMARY KEY AUTO_INCREMENT,
             name VARCHAR(100) NOT NULL,
             points INT NOT NULL,
-            seconds INT NOT NULL
+            seconds INT NOT NULL,
+            correctsAnswer INT NOT NULL
         );`;
         await conn.query(query);
         console.log('Tabla creada con éxito');
