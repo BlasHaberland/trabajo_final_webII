@@ -20,7 +20,7 @@ Este proyecto es una aplicación web interactiva llamada TrivEarth, diseñada co
 ## Instalacion
 1. Clonar el repositorio
 ```bash
-   git clone https://github.com/tu-usuario/trabajo-final-webii.git
+git clone https://github.com/tu-usuario/trabajo-final-webii.git
 ```
 2. Acceder a la carpeta
 ```bash
