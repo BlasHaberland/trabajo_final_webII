@@ -3,6 +3,10 @@ const btnTop20 = document.getElementById('btnTop20');
 const container = document.getElementById('container');
 const badnerasImg = document.getElementById('cont-banderas');
 
+// URL 
+const urlLocal = 'http://localhost:3000/players';
+const urlRemota = 'https://trabajo-final-webii.onrender.com/players';
+
 let resBien = 0;
 let resMal = 0;
 
@@ -14,7 +18,7 @@ let intervaloReloj;
 // Función para obtener y mostrar el Top 20
 async function mostrarTop20(lista) {
     try {
-        const response = await fetch("https://trabajo-final-webii.onrender.com/players");
+        const response = await fetch(urlLocal);
         if (!response.ok) {
             throw new Error(`Error al obtener el Top 20: ${response.statusText}`);
         }
@@ -39,7 +43,7 @@ async function mostrarTop20(lista) {
             // Crear el span para los detalles (puntaje y segundos)
             const detallesSpan = document.createElement('span');
             detallesSpan.className = 'detalles';
-            detallesSpan.textContent = `Puntaje: ${player.points}, Segundos: ${player.seconds}`;
+            detallesSpan.textContent = `Puntaje: ${player.points}, Resp.correctas: ${player.correctsAnswer}, Segundos: ${player.seconds}`;
 
             // Agregar los spans al elemento li
             listItem.appendChild(nombreSpan);
@@ -113,12 +117,14 @@ function mostrarPreguntas() {
         //Envento al hacer click al boton enviar puntaje
 
         document.getElementById('btnEnviarPuntaje').addEventListener('click', () => {
-            const nombreJugador = document.getElementById('nombreJugador').value;
+            let nombreJugador = document.getElementById('nombreJugador').value;
+            nombreJugador = nombreJugador.trim().toLowerCase();
+
             if (nombreJugador.trim() === '') {
                 alert('Por favor ingrese el nombre del jugador para poder publicar el puntaje.');
             } else {
 
-                fetch("https://trabajo-final-webii.onrender.com/players", {
+                fetch(urlLocal, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -126,14 +132,15 @@ function mostrarPreguntas() {
                     body: JSON.stringify({
                         name: nombreJugador,
                         points: puntos,
-                        sec: tiempoFinal,
+                        seconds: tiempoFinal,
+                        correctsAnswer: resBien
                     })
                 })
 
                     .then((res) => res.json())
                     .then((res) => console.log(res))
 
-                console.log(`Enviando puntaje: ${nombreJugador} - ${puntos} puntos - ${tiempoFinal} s.`);
+                console.log(`Enviando puntaje: ${nombreJugador} - ${puntos} puntos - cantidad de respuestas correctas ${resBien} - ${tiempoFinal} s.`);
                 alert('Puntaje enviado con exito');
                 btnEmpezarJuego.style.display = 'block';
                 btnTop20.style.display = 'block';
@@ -148,7 +155,7 @@ function mostrarPreguntas() {
     const pregunta = preguntas[indexPreguntaActual];
 
     container.innerHTML = `
-    <h2>${pregunta.pregunta}</h2>
+    <h2 class= "pregunta">${pregunta.pregunta}</h2>
     <p> Pregunta ${indexPreguntaActual + 1} / ${preguntas.length}</p>
     <div id = "opciones"></div>`;
 
