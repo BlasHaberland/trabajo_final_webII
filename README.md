@@ -1,6 +1,7 @@
 ![Banderas](./frontend/img/banderas.png)
 # Trabajo Final - Web II
-Este proyecto es una aplicación web interactiva llamada TrivEarth, diseñada como trabajo final para la materia Web II. La aplicación consiste en un juego de preguntas y respuestas relacionadas con países, utilizando datos obtenidos de la API de RestCountries.
+Este proyecto es una aplicación web interactiva llamada TrivEarth, diseñada como trabajo final para la materia Web II. La aplicación consiste en un juego de preguntas y respuestas relacionadas con países, utilizando datos obtenidos de la API de RestCountries.  
+[Prueba el juego](https://trabajo-final-webii-1.onrender.com/index.html)
 
 ## Requisitos
 - Tener instalado Node.js y npm.
@@ -60,3 +61,5 @@ npm run dev
 ### API
 RestCountries: API utilizada para obtener datos de países (banderas, capitales, fronteras, etc.).  
 [link API restcountries](https://restcountries.com/)
+
+
